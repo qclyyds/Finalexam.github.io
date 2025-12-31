@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>答题结果 - 期末考试复习系统</title>
+    <link rel="stylesheet" href="styles/common.css">
+    <link rel="stylesheet" href="styles/result.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>答题结果</h1>
+        </header>
+        
+        <main>
+            <!-- 成绩概览 -->
+            <section class="score-section">
+                <div class="score-card">
+                    <div class="score-circle" id="score-circle">
+                        <div class="score-value" id="score-value">0%</div>
+                        <div class="score-label">正确率</div>
+                    </div>
+                    <div class="score-details">
+                        <div class="score-item">
+                            <span class="label">总题数：</span>
+                            <span class="value" id="total-count">0</span>
+                        </div>
+                        <div class="score-item correct">
+                            <span class="label">正确：</span>
+                            <span class="value" id="correct-count">0</span>
+                        </div>
+                        <div class="score-item wrong">
+                            <span class="label">错误：</span>
+                            <span class="value" id="wrong-count">0</span>
+                        </div>
+                        <div class="score-item unanswered">
+                            <span class="label">未答：</span>
+                            <span class="value" id="unanswered-count">0</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 鼓励语 -->
+                <div class="encouragement" id="encouragement">
+                    继续加油！
+                </div>
+            </section>
+            
+            <!-- 筛选选项 -->
+            <section class="filter-section">
+                <h2>题目列表</h2>
+                <div class="filter-buttons">
+                    <button class="filter-btn active" onclick="filterQuestions('all')">
+                        全部题目 (<span id="all-count">0</span>)
+                    </button>
+                    <button class="filter-btn" onclick="filterQuestions('wrong')">
+                        错题 (<span id="wrong-filter-count">0</span>)
+                    </button>
+                    <button class="filter-btn" onclick="filterQuestions('correct')">
+                        正确题 (<span id="correct-filter-count">0</span>)
+                    </button>
+                </div>
+            </section>
+            
+            <!-- 题目详情列表 -->
+            <section class="questions-review" id="questions-review">
+                <!-- 动态生成题目详情 -->
+            </section>
+            
+            <!-- 操作按钮 -->
+            <section class="action-section">
+                <button class="btn btn-secondary" onclick="goHome()">
+                    返回首页
+                </button>
+                <button class="btn btn-primary" onclick="retryWrongQuestions()" id="retry-btn">
+                    错题重做
+                </button>
+                <button class="btn btn-success" onclick="practiceAgain()">
+                    再来一次
+                </button>
+            </section>
+        </main>
+    </div>
+    
+    <script src="scripts/result.js"></script>
+</body>
+</html>

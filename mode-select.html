@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>模式选择 - 期末考试复习系统</title>
+    <link rel="stylesheet" href="styles/common.css">
+    <link rel="stylesheet" href="styles/mode-select.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1 id="subject-title">自然语言处理</h1>
+            <p class="subtitle">选择复习模式和参数</p>
+        </header>
+        
+        <main>
+            <!-- 模式选择 -->
+            <section class="section">
+                <h2>📖 选择模式</h2>
+                <div class="mode-selection">
+                    <div class="mode-card" id="review-mode" onclick="selectMode('review')">
+                        <div class="mode-icon">💡</div>
+                        <h3>复习模式</h3>
+                        <p>即时反馈，边做边学</p>
+                        <ul class="mode-features">
+                            <li>✓ 答题后立即显示正确答案</li>
+                            <li>✓ 适合学习和巩固知识</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="mode-card" id="exam-mode" onclick="selectMode('exam')">
+                        <div class="mode-icon">✍️</div>
+                        <h3>考试模式</h3>
+                        <p>模拟真实考试环境</p>
+                        <ul class="mode-features">
+                            <li>✓ 全部答完后统一批阅</li>
+                            <li>✓ 适合自我测评</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- 参数设置 -->
+            <section class="section">
+                <h2>⚙️ 参数设置</h2>
+                
+                <div class="settings-grid">
+                    <!-- 题目数量 -->
+                    <div class="setting-item">
+                        <label for="question-count">题目数量</label>
+                        <select id="question-count">
+                            <option value="10" selected>10题</option>
+                            <option value="20">20题</option>
+                            <option value="30">30题</option>
+                            <option value="50">50题</option>
+                            <option value="all">全部题目</option>
+                        </select>
+                    </div>
+                    
+                    <!-- 题目顺序 -->
+                    <div class="setting-item">
+                        <label for="question-order">题目顺序</label>
+                        <select id="question-order">
+                            <option value="random" selected>随机乱序</option>
+                            <option value="sequential">按序排列</option>
+                        </select>
+                    </div>
+                    
+                    <!-- 题目类型 -->
+                    <div class="setting-item full-width">
+                        <label>题目类型</label>
+                        <div class="checkbox-group">
+                            <label class="checkbox-label">
+                                <input type="checkbox" id="type-single" value="single" checked>
+                                <span>单选题</span>
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" id="type-multiple" value="multiple">
+                                <span>多选题</span>
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" id="type-blank" value="blank">
+                                <span>填空题</span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- 开始按钮 -->
+            <div class="action-section">
+                <button class="back-btn" onclick="goBack()">← 返回</button>
+                <button class="start-btn" onclick="startPractice()" disabled id="start-btn">
+                    <span>请先选择模式</span>
+                </button>
+            </div>
+        </main>
+    </div>
+    
+    <script src="scripts/mode-select.js"></script>
+</body>
+</html>
